@@ -5,7 +5,7 @@
 	},
 
 	"mongoose": {
-		"uri": "mongodb://localhost/chat"
+		"uri": "mongodb://localhost/rest-api"
 	},
 
   "secret": "lalalalalalalala"
