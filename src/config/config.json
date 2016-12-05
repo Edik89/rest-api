@@ -1,0 +1,13 @@
+{
+	"ports":{
+		"appPort": 3000,
+		"mongoPort": 2000
+	},
+
+	"mongoose": {
+		"uri": "mongodb://localhost/chat"
+	},
+
+  "secret": "lalalalalalalala"
+
+}
