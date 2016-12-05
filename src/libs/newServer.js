@@ -1,5 +1,4 @@
 import Koa from 'koa';
-import convert from 'koa-convert';
 import config from '../config';
 import Router from 'koa-router';
 import KoaBody from 'koa-bodyparser';
