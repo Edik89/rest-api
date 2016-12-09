@@ -1,7 +1,7 @@
 import Koa from 'koa';
+import config from '../config';
 import Router from 'koa-router';
 import koaBody from 'koa-body';
-import config from '../config';
 import passport, {
   login,
   logout,
