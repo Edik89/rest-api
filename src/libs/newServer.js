@@ -1,13 +1,12 @@
 import Koa from 'koa';
-import convert from 'koa-convert';
-import config from '../config';
 import Router from 'koa-router';
-import KoaBody from 'koa-bodyparser';
+import koaBody from 'koa-body';
+import config from '../config';
 import passport, {
   login,
   logout,
   register,
-  uploadImage,
+  updateImage,
   getUsers,
   getUser,
   JwtStr
@@ -15,7 +14,8 @@ import passport, {
 import {
   GreateOrganization,
   reqToJoinOrganizations,
-  reqToJoinOrganization
+  reqToJoinOrganization,
+  getOrgs
 }
 from "../middleware/OrgPassport";
 
@@ -27,7 +27,11 @@ export default async function createServer(port) {
   JwtStr(passport);
 
   app
-    .use(KoaBody())
+    .use(koaBody({
+      multipart: true,
+      formLimit: "10000kb",
+      formidable: {  keepExtensions: true, uploadDir: config.get("root")+'/pic' }
+    }))
     .use(router.routes())
     .use(router.allowedMethods())
     .use(passport.initialize());
@@ -36,11 +40,13 @@ export default async function createServer(port) {
   router
     .post('/register', register)
     .get('/users', getUsers)
+    .get('/user/:id', getUser)
     .post('/login', login)
     .get('/logout',  logout)
-    .put('/updateAvatar', uploadImage)
+    .put('/updateAvatar', updateImage)
     .post('/greatOrg', GreateOrganization)
-    .get('/getOrg/:id', reqToJoinOrganization);
+    .get('/orgs', getOrgs)
+    .get('/org/:id', reqToJoinOrganization);
 
      app.listen(port);
 

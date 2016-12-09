@@ -4,10 +4,17 @@
 		"mongoPort": 2000
 	},
 
+  "root": "/home/eddie/node/rest-api/src",
+
 	"mongoose": {
-		"uri": "mongodb://localhost/chat"
+		"uri": "mongodb://localhost/rest-api"
 	},
 
-  "secret": "lalalalalalalala"
+  "secret": "mySecterToken",
 
+  "cloudinary": {
+    "cloud_name": "dybrhiiqtp",
+    "api_key": "283625262347148",
+    "api_secret": "TQBMlYD7bLy6Z_hiqK3i3pfLtQ8"
+  }
 }

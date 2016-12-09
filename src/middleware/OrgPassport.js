@@ -11,6 +11,7 @@ export const GreateOrganization = async (ctx, next) => {
     const token = getToken(ctx.request.headers);
 
     try {
+
       let decodedName = jwt.decode(token, config.get("secret"));
 
       const usr = await User.findOne({name: decodedName});
@@ -24,7 +25,9 @@ export const GreateOrganization = async (ctx, next) => {
        let res = await org.save();
 
       ctx.body = { "message": "Successful created: " + res.name};
+
       await next();
+
     } catch(err) {
 
       ctx.body = {error: err.message, message:"Authentication failed"};
@@ -35,9 +38,21 @@ export const GreateOrganization = async (ctx, next) => {
 
 };
 
+export const getOrgs = async (ctx, next) => {
+  try {
+    let usr = await Org.find({});
+    ctx.body = usr;
+    await next();
+  } catch(err) {
+    console.log(err.stack);
+  }
+};
+
 
 export const reqToJoinOrganization = async (ctx, next) => {
+
   const token = getToken(ctx.request.headers);
+
     try {
 
       if(token) {
@@ -48,7 +63,8 @@ export const reqToJoinOrganization = async (ctx, next) => {
 
         if(usr.name) {
 
-          const res = await Org.findById(ctx.request.url.split('/')[2]);
+          const res = await Org.findById(ctx.params.id);
+
           ctx.body = {"message": "Welcome! "+usr.name+" in the "+res.name};
 
         } else {
