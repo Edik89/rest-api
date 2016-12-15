@@ -9,7 +9,6 @@ import
   register,
   updateImage,
   getUsers
-  //getUser
 } from '../middleware/UsrPassport';
 import {
   GreateOrganization,
@@ -41,7 +40,6 @@ export default async function createServer(port) {
   router
     .post('/register', register)
     .get('/users', getUsers)
-    //.get('/user/:id', getUser)
     .post('/login', login)
     .get('/logout',  logout)
     .put('/updateAvatar', updateImage)
