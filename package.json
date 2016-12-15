@@ -9,16 +9,13 @@
     "start": "nodemon src/bin/dev.js"
   },
   "dependencies": {
-    "async-busboy": "^0.3.3",
     "babel-core": "^6.10.4",
     "babel-polyfill": "^6.9.1",
     "cloudinary": "^1.4.6",
     "jwt-simple": "^0.5.1",
     "koa": "^2.0.0",
     "koa-body": "^2.0.0",
-    "koa-bodyparser": "^3.2.0",
     "koa-jwt": "^1.2.0",
-    "koa-multer": "^1.0.0",
     "koa-passport": "^3.0.0-rc.1",
     "koa-router": "^7.0.1",
     "mongodb": "^2.2.10",

@@ -2,22 +2,23 @@ import Koa from 'koa';
 import config from '../config';
 import Router from 'koa-router';
 import koaBody from 'koa-body';
-import passport, {
+import
+{
   login,
   logout,
   register,
   updateImage,
-  getUsers,
-  getUser,
-  JwtStr
-} from "../middleware/UsrPassport";
+  getUsers
+  //getUser
+} from '../middleware/UsrPassport';
 import {
   GreateOrganization,
-  reqToJoinOrganizations,
   reqToJoinOrganization,
   getOrgs
 }
-from "../middleware/OrgPassport";
+from '../middleware/OrgPassport';
+import passport, { JwtStr } from "../middleware/passport";
+import error from "../middleware/error";
 
 export default async function createServer(port) {
 
@@ -27,6 +28,7 @@ export default async function createServer(port) {
   JwtStr(passport);
 
   app
+    .use(error)
     .use(koaBody({
       multipart: true,
       formLimit: "10000kb",
@@ -36,11 +38,10 @@ export default async function createServer(port) {
     .use(router.allowedMethods())
     .use(passport.initialize());
 
-
   router
     .post('/register', register)
     .get('/users', getUsers)
-    .get('/user/:id', getUser)
+    //.get('/user/:id', getUser)
     .post('/login', login)
     .get('/logout',  logout)
     .put('/updateAvatar', updateImage)
