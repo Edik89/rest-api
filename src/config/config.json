@@ -13,8 +13,8 @@
   "secret": "mySecterToken",
 
   "cloudinary": {
-    "cloud_name": "dybrhiiqtp",
-    "api_key": "283625262347148",
-    "api_secret": "TQBMlYD7bLy6Z_hiqK3i3pfLtQ8"
+    "cloud_name": "**",
+    "api_key": "**",
+    "api_secret": "**"
   }
 }
