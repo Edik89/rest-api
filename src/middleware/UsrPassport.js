@@ -80,40 +80,6 @@ export const getUsers = async(ctx, next) => {
     ctx.body = usr;
 };
 
-/*export const getUser = async(ctx, next) => {
-
-    const token = getToken(ctx.request.headers);
-
-    if (token) {
-
-        let decodedName = jwt.decode(token, config.get("secret"));
-
-        const usr = await User.findOne({
-            name: decodedName
-        });
-
-        if (usr.name) {
-
-            const res = await User.findById(ctx.params.id);
-            ctx.body = {
-                "message": "Welcome! " + usr.name
-            };
-
-        } else {
-
-            ctx.body = {
-                message: "Token not provided."
-            };
-        }
-
-    } else {
-        ctx.body = {
-            message: "Token Not Found"
-        };
-    }
-
-};*/
-
 export const updateImage = async (ctx, next) => {
 
     await updateAvatar(ctx, next);
