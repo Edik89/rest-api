@@ -1,5 +1,5 @@
 node_modules
-src/pic
+/pic/*
 .directory
 chat.sublime-project
 chat.sublime-workspace
