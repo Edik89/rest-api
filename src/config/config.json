@@ -3,7 +3,7 @@
 		"appPort": 3000,
 		"mongoPort": 2000
 	},
-
+	
   "root": "/home/eddie/node/rest-api/src",
 
 	"mongoose": {
