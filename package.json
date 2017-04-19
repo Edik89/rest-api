@@ -1,0 +1,33 @@
+{
+  "name": "rest-api23232",
+  "version": "0.0.1",
+  "description": "A simple REST API",
+  "main": "index.js",
+  "author": "Edik Berets",
+  "private": true,
+  "scripts": {
+    "start": "nodemon src/bin/dev.js"
+  },
+  "dependencies": {
+    "babel-core": "^6.10.4",
+    "babel-polyfill": "^6.9.1",
+    "cloudinary": "^1.4.6",
+    "jwt-simple": "^0.5.1",
+    "koa": "^2.0.0",
+    "koa-body": "^2.0.0",
+    "koa-jwt": "^1.2.0",
+    "koa-passport": "^3.0.0-rc.1",
+    "koa-router": "^7.0.1",
+    "mongodb": "^2.2.10",
+    "mongoose": "^4.6.2",
+    "nconf": "^0.8.4",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "crypto": "0.0.3",
+    "nodemon": "^1.9.2"
+  }
+}
